@@ -9,7 +9,6 @@ Welcome to my GitHub interview assignment! In this project, I've created a robus
 - **React Hooks:** I've employed React Hooks to manage state and lifecycle aspects of components, enhancing performance and readability.
 - **Docker:** The application is containerized using Docker, making it easy to deploy and ensuring consistency across environments.
 - **Axios:** I've leveraged Axios for smooth and efficient HTTP requests to the API endpoints.
-- **Formik:** Formik facilitates seamless form management with automatic state tracking and validation.
 - **Responsive UI:** The UI is thoughtfully designed to be responsive, providing a consistent experience across different devices and screen sizes.
 - **AntDesign:** The UI is polished and intuitive, courtesy of the Ant Design component library.
 - **Redux Toolkit:** Redux Toolkit powers state management, simplifying data flow and ensuring a consistent application state.
