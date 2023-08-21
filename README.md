@@ -11,7 +11,6 @@ Welcome to my GitHub interview assignment! In this project, I've created a robus
 - **Axios:** I've leveraged Axios for smooth and efficient HTTP requests to the API endpoints.
 - **Formik:** Formik facilitates seamless form management with automatic state tracking and validation.
 - **Responsive UI:** The UI is thoughtfully designed to be responsive, providing a consistent experience across different devices and screen sizes.
-- **LocalStorage:** I've integrated LocalStorage to store user preferences and data, enhancing user convenience.
 - **AntDesign:** The UI is polished and intuitive, courtesy of the Ant Design component library.
 - **Redux Toolkit:** Redux Toolkit powers state management, simplifying data flow and ensuring a consistent application state.
 - **Jest and React Testing Library:** Robust testing is ensured using Jest and React Testing Library, ensuring reliability and preventing regressions.
