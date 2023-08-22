@@ -30,8 +30,8 @@ const UserList: React.FC = () => {
      <h1>Users</h1>
       <Row gutter={[16, 16]} justify="center" >
         
-        {users.map((user) => (
-          <Link to={`/user/${user.user_id}`}>
+        {users.map((user, index) => (
+          <Link key={index} to={`/user/${user.user_id}`}>
             <UserCard user={user} />
           </Link>
         ))}

@@ -62,11 +62,12 @@ body {
 }
 .header-right {
     float: right;
+    position: relative;
+    right: 10px;
 }
-.logo {
-    background-color: transparent;
-    border: 0;
+.header-left {
     font-size: 32px;
+    margin-left: 10px;
 }
 .menu-lable{
     padding-left: 10px

@@ -69,7 +69,7 @@ interface MenuItem {
       </div>
 
       <Button className="openbtn" onClick={toggleSidebar}><MenuUnfoldOutlined size={50}/></Button>
-        <Button className="logo">Larvis</Button>
+        <span className="header-left">Larvis</span>
       
         <div className='header-right'>
           <Avatar size={35} style={{ marginRight: '16px',color: '#000', lineHeight: 'normal'}} >
