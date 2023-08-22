@@ -40,7 +40,7 @@ const UserDetail: React.FC = () => {
         });
     }
       fetchUserData();
-  }, [userId]);
+  }, [userId, apiUrl, authToken]);
 
   
 
