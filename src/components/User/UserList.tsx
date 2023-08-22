@@ -17,7 +17,8 @@ const UserList: React.FC = () => {
         }
       })
       .then(response => {
-        setUsers(response.data);
+        const sortedData = response.data.slice().sort((a, b) => (a.name || '').localeCompare(b.name || ''));
+        setUsers(sortedData);
       })
       .catch(error => {
         console.error('Error fetching user data:', error);
