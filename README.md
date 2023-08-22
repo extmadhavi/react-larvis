@@ -53,14 +53,15 @@ docker run -p 8000:8000 -p 3000:3000 react-redux-app
 
 The app will be accessible at [http://localhost:3000](http://localhost:3000) for the React app and [http://localhost:8000](http://localhost:8000) for the REST API.
 ## Application Flow 
+![AppFlowMissionControl](https://github.com/extmadhavi/react-larvis/assets/50070482/8005f946-971b-48b6-b26f-bc464854d800)
 
-![AppFlowMissionControl](https://github.com/extmadhavi/react-larvis/assets/50070482/db03b315-c0e9-417b-a298-479c70576dcf)
 
 ## REST API Endpoints
 
 - `GET /users`: Retrieve a list of users.
 - `GET /users/<user_id>`: Retrieve user details for a specific user.
 - `POST /users/<user_id>`: Update user details.
+
 - `GET /acquisitions`: Retrieve acquisitions data.
 
 ## Additional Notes
