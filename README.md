@@ -1,28 +1,46 @@
-# MISSION-CONTROL
-**Project Description: Frontend Service with User-Friendly UI for API Interaction**
+# Getting Started with Create React App
 
-Welcome to my GitHub interview assignment! In this project, I've created a robust and user-friendly frontend service that seamlessly interacts with a provided API. By combining cutting-edge technologies and best practices, I've designed a feature-rich application that brings efficiency and ease of use to API interactions. 
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-**Technologies Utilized:**
-- **React:** The project is built on the React framework, harnessing its component-based architecture for modularity and reusability.
-- **TypeScript:** TypeScript ensures robust typing and helps catch potential errors during development.
-- **React Hooks:** I've employed React Hooks to manage state and lifecycle aspects of components, enhancing performance and readability.
-- **Docker:** The application is containerized using Docker, making it easy to deploy and ensuring consistency across environments.
-- **Axios:** I've leveraged Axios for smooth and efficient HTTP requests to the API endpoints.
-- **Responsive UI:** The UI is thoughtfully designed to be responsive, providing a consistent experience across different devices and screen sizes.
-- **AntDesign:** The UI is polished and intuitive, courtesy of the Ant Design component library.
-- **Redux Toolkit:** Redux Toolkit powers state management, simplifying data flow and ensuring a consistent application state.
-- **Jest and React Testing Library:** Robust testing is ensured using Jest and React Testing Library, ensuring reliability and preventing regressions.
+## Available Scripts
 
-**Project Story:**
-Imagine being tasked with creating a frontend service for an API. The goal was not just to fulfill the requirement but to make it as user-friendly and useful as possible. I embarked on this journey by meticulously designing the application's architecture, integrating essential features, and enhancing user experience.
+In the project directory, you can run:
 
-The frontend service provides a sleek and intuitive interface, making API interactions a breeze. Users can seamlessly navigate through various functionalities, effortlessly interact with API endpoints, and enjoy a responsive UI that adapts to their devices.
+### `yarn start`
 
-Whether it's fetching data, submitting forms, or managing user preferences, the application's design ensures simplicity and clarity. Leveraging TypeScript's power, I've secured data integrity and minimized potential bugs.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-I've poured meticulous effort into every aspect of the project. From integrating Redux Toolkit for state management to incorporating Formik for form handling, each choice was made with the user's ease in mind.
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-My commitment to quality extends to testing. The application undergoes rigorous testing using Jest and React Testing Library, ensuring its reliability and functionality across scenarios.
+### `yarn test`
 
-In a nutshell, this project showcases my expertise in modern frontend development. The seamless integration of React, TypeScript, Docker, and other technologies underscores my ability to deliver user-friendly, performant, and responsive applications. I'm excited to present this project as a testament to my dedication to creating valuable and intuitive user experiences.
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `yarn build`
+
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `yarn eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
