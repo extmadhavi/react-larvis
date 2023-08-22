@@ -17,7 +17,7 @@ Before you begin, ensure you have the following tools installed:
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/extmadhavi/your-repo-name.git
+git clone https://github.com/extmadhavi/react-larvis.git
 cd react-larvis
 ```
 
