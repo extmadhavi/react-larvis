@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
-import {  setUserID } from '../../../redux/authSlice';
+import {  setUserID } from '../../redux/authSlice';
 import { useNavigate } from 'react-router-dom'; 
 import { Form, Input, Button, Checkbox, Row, Col, Card } from 'antd';
 
