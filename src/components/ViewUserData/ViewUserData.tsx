@@ -1,6 +1,5 @@
 import React from 'react';
 import { Avatar, Row, Col, Button, Input, Form } from 'antd';
-import { LockOutlined } from '@ant-design/icons';
 import { UserData } from "../../type/UserData";
 
 

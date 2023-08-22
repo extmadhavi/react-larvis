@@ -1,11 +1,10 @@
 import React, { useState, ReactNode } from 'react';
-import { Layout, Avatar, Tooltip, Modal , theme, Button, Menu} from 'antd';
-import { LogoutOutlined , AppstoreOutlined, MenuUnfoldOutlined, TableOutlined,
+import { Layout, Avatar, Tooltip, Modal , theme, Button} from 'antd';
+import { LogoutOutlined , MenuUnfoldOutlined, TableOutlined,
 UserOutlined,
-TeamOutlined ,
-  MenuOutlined
+TeamOutlined 
 } from '@ant-design/icons';
-import { useNavigate, Link , useLocation} from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import './../Header/Header.scss';
 const { Header } = Layout;
 interface MenuItem {

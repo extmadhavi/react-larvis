@@ -1,4 +1,4 @@
-import { ConfigProvider, theme } from 'antd';
+import { ConfigProvider } from 'antd';
 import React from 'react';
 import AppRouter from './routeContainers/AppRouter'
 import { Provider } from 'react-redux';
@@ -7,7 +7,7 @@ import './App.scss';
 import ErrorBoundary from './utilities/ErrorBoundary';
 const App: React.FC = () => (
   <Provider store={store}>
-      <ConfigProvider theme={{  }}>
+      <ConfigProvider>
         <ErrorBoundary>
            <AppRouter></AppRouter>
         </ErrorBoundary>

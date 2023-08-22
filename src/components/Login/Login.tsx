@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom'; 
-import { Form, Input, Button, Checkbox, Row, Col, Card } from 'antd';
+import { Form, Input, Button, Row, Col, Card } from 'antd';
 
 interface AuthResponse {
   access: string;
@@ -11,7 +10,6 @@ interface AuthResponse {
 const Login: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleLogin = () => {
     const apiUrl = 'http://localhost:8080/token';
@@ -50,12 +48,8 @@ const Login: React.FC = () => {
 
             <Form.Item label="Password" name="password" rules={[{ required: true, message: 'Please input your password!' }]}>
               <Input.Password onChange={e => setPassword(e.target.value)} />
-            </Form.Item>
-
-            {/* <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 8, span: 16 }}>
-              <Checkbox>Remember me</Checkbox>
-            </Form.Item> */}
-
+           </Form.Item>
+           
             <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
               <Button type="primary" htmlType="submit" onClick={handleLogin}>
                 Submit

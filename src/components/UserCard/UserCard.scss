@@ -2,13 +2,11 @@
     display: flex;
     justify-content: flex-start;
     align-items: start;
-   // height: 100vh;
 }
 
 .centered-card {
     flex-grow: 1;
     background-color: #fff;
-    /* Make the cards occupy all available horizontal space */
     min-width: 350px;
     margin: 20px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -19,7 +17,7 @@
     margin: 0 auto;
 }
 
-/* Media query for small devices */
+
 @media (max-width: 768px) {
     .centered-card-container {
         flex-direction: column;

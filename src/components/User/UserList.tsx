@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Card, Avatar, Row, Col, theme } from 'antd';
+import { Row } from 'antd';
 import { Link } from 'react-router-dom';
-import { useSelector } from "react-redux";
-import { RootState } from '../../redux/store';
 import { User}  from '../../interfaces/User';
 import UserCard from "../UserCard/UserCard"
 const UserList: React.FC = () => {
