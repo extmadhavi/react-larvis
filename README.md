@@ -1,7 +1,9 @@
 ```markdown
 # React App with Ant Design, TypeScript, Redux Toolkit and Docker
 
-This repository contains a coding assignment implemented using React with  Ant Design components, TypeScript, Redux Toolkit and Docker for containerization. The app integrates with a REST API, which provides endpoints for retrieving user data and acquisitions.
+This repository contains a coding assignment implemented using React with  Ant Design components, TypeScript,
+Redux Toolkit, React Router and Docker for containerization. The app integrates with a REST API,
+which provides endpoints for retrieving user data and acquisitions.
 
 ## Prerequisites
 
