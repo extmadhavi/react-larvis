@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from 'antd';
+import { Card, Row } from 'antd';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
 interface DataObject {
@@ -17,8 +17,9 @@ const OreSiteHistogram: React.FC<Props> = ({ data }) => {
   }));
 
   return (
+  
     <Card title="Ore Sites Histogram">
-      <BarChart width={500} height={300} data={histogramData}>
+      <BarChart width={500} height={300} data={histogramData} >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="ore_sites" label={{ value: 'Ore Sites', position: 'insideBottom', offset: -10 }} />
         <YAxis label={{ value: 'Frequency', angle: -90, position: 'insideLeft' }} />
@@ -26,7 +27,8 @@ const OreSiteHistogram: React.FC<Props> = ({ data }) => {
         <Legend />
         <Bar dataKey="ore_sites" fill="#8884d8" />
       </BarChart>
-    </Card>
+      </Card>
+     
   );
 };
 

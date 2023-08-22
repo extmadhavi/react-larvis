@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
-import { setToken, setUserID } from '../../../redux/authSlice';
+import {  setUserID } from '../../../redux/authSlice';
 import { useNavigate } from 'react-router-dom'; 
-import { Form, Input, Button, Checkbox , Row, Col} from 'antd';
-import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import { Form, Input, Button, Checkbox, Row, Col, Card } from 'antd';
+
 interface AuthResponse {
   access: string;
 }
@@ -25,70 +25,48 @@ const Login: React.FC = () => {
       })
       .then(response => {
         const token = response.data.access;
-       // setAuthToken(token);
-        dispatch(setToken(token));
-        dispatch(setUserID(username));
-        console.log('Authentication successful. Token:', token);
+        localStorage.setItem('authToken', token);
+        localStorage.setItem('username', username);
         navigate('/users');
       })
-      //.then( response =>{navigate('/users') })
       .catch(error => {
         console.error('Authentication failed:', error);
         navigate('/');
       });
   };
-  
+ return (
 
-  return (
-    <Row justify="center" align="middle" style={{ minHeight: '100vh' }}>
-      <Col xs={20} sm={16} md={12} lg={8} xl={6}>
-      <h2>Login</h2>
-        <Form
-      name="normal_login"
-      className="login-form"
-      initialValues={{ remember: true }}
-    >
-      <Form.Item
-        name="username"
-        rules={[{ required: true, message: 'Please input your Username!' }]}
-      >
-        <Input
-          prefix={<UserOutlined className="site-form-item-icon" />}
-          placeholder="Username"
- onChange={e => setUsername(e.target.value)}
-        />
-      </Form.Item>
-      <Form.Item
-        name="password"
-        rules={[{ required: true, message: 'Please input your Password!' }]}
-      >
-        <Input
-          prefix={<LockOutlined className="site-form-item-icon" />}
-          type="password"
-          placeholder="Password"
- onChange={e => setPassword(e.target.value)}
-        />
-      </Form.Item>
-        <Form.Item>
-        <Form.Item name="remember" valuePropName="checked" noStyle>
-          <Checkbox>Remember me</Checkbox>
-        </Form.Item>
+    <Row justify="center" align="middle" style={{ minHeight: '100vh', background: '#134e5e' }}>
+      <Col xs={24} sm={20} md={16} lg={12} xl={8}>
+        <Card style={{ width: '100%', maxWidth: 700 }}>
+          <Form
+            name="basic"
+            labelCol={{ span: 8 }}
+            wrapperCol={{ span: 16 }}
+            style={{ maxWidth: 600 }}
+            initialValues={{ remember: true }}
+            autoComplete="off"
+          >
+            <Form.Item label="Username" name="username" rules={[{ required: true, message: 'Please input your username!' }]}>
+              <Input placeholder="Username" onChange={e => setUsername(e.target.value)} />
+            </Form.Item>
 
-        <a className="login-form-forgot" href="/" aria-disabled>
-          Forgot password
-        </a>
-      </Form.Item>
+            <Form.Item label="Password" name="password" rules={[{ required: true, message: 'Please input your password!' }]}>
+              <Input.Password onChange={e => setPassword(e.target.value)} />
+            </Form.Item>
 
-      <Form.Item>
-        <Button type="primary" htmlType="submit" className="login-form-button" onClick={handleLogin}>
-          Log in
-        </Button>
-        
-      </Form.Item>
-    </Form>
-     
-     
-    </Col>
+            <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 8, span: 16 }}>
+              <Checkbox>Remember me</Checkbox>
+            </Form.Item>
+
+            <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+              <Button type="primary" htmlType="submit" onClick={handleLogin}>
+                Submit
+              </Button>
+            </Form.Item>
+          </Form>
+        </Card>
+      </Col>
     </Row>
   );
 };

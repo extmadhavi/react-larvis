@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import OreSiteHistogram from './OreSiteHistogram'
-import {Table,Pagination } from 'antd' 
-interface AcquisitionData { 
- timestamp: number;
-  ore_sites: number;
-}
+import { Radio , RadioChangeEvent,Row, Col} from 'antd';
+import TableView from './TableView';
+import { Acquisition } from '../../../interfaces/Acquisition';
+
 const Acquisitions: React.FC = () => {
-  const [acquisitions, setacquisitions] = useState<AcquisitionData[]>([]);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [acquisitions, setacquisitions] = useState<Acquisition[]>([]);
+  const [displayType, setdisplayType] = useState(1); 
+  
   useEffect(() => {
     const apiUrl = 'http://localhost:8080/acquisitions';
-    const authToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbGljZSJ9.4E-8lcUi0JvcTV1AOAoPjBmuFokGR2aR6gKtufMp5qU'; // Replace with your actual authentication token
+    const authToken = localStorage.getItem("authToken") 
 
     axios
-      .get<AcquisitionData[]>(apiUrl, {
+      .get<Acquisition[]>(apiUrl, {
         headers: {
           Authorization: `Bearer ${authToken}`
         }
@@ -27,39 +27,29 @@ const Acquisitions: React.FC = () => {
       });
   }, []);
   
-  const itemsPerPage = 5;
-  const columns = [
-    { title: 'Timestamp', dataIndex: 'timestamp', key: 'timestamp' },
-    { title: 'Ore Sites', dataIndex: 'ore_sites', key: 'ore_sites' },
-  ];
-  //const PaginatedData = (page: number) => {
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    const currentData = acquisitions.slice(startIndex, endIndex);
-  //};
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-  };
+  
+  
+  
+  const handleRadioChange  = (e: RadioChangeEvent) => {
+    setdisplayType(e.target.value);
+};
+ 
   return (
-    <div>
-      <h2>User List GET /acquisitions</h2>
-      <OreSiteHistogram data={acquisitions} />
-      {/* {acquisitions.map(acquisition => (
-        <div key={acquisition.timestamp}>
-          <p>timestamp: {acquisition.timestamp}</p>
-          <p>sites: {acquisition.ore_sites}</p>
-        </div>
-      ))} */}
-      <div>
-      <Table columns={columns} dataSource={currentData} pagination={false} />
-      <Pagination
-        current={currentPage}
-        pageSize={itemsPerPage}
-        total={acquisitions.length}
-        onChange={handlePageChange}
-      />
-    </div>
-    </div>
+    <Row gutter={[16, 16]} justify="center" >
+      <Col span={16}><h1 className='ant-page-header-heading'>Satellite acquisitions</h1></Col>
+      <Col span={16}>
+        <Radio.Group onChange={handleRadioChange} defaultValue="a">
+            <Radio.Button value="1">Table</Radio.Button>
+            <Radio.Button value="2">Chart</Radio.Button>
+        </Radio.Group>
+      </Col>
+       
+          
+      
+      <Col span={16}> { displayType == 1 ?  <TableView acquisitions={acquisitions}></TableView> :  <OreSiteHistogram data={acquisitions} />} </Col>
+   
+       
+      </Row>
   );
 };
 

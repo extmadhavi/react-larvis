@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import AppLayout from "../Common/layout/Layout";
 import { RootState  } from '../../redux/store';
-
+import MainLayout from '../../container/Layout/Layout'
 const ProtectedRoute = (props: any) => {
-    const authToken = useSelector((state: RootState) => state.auth.token);
+    const authToken = localStorage.getItem('authToken');
     const navigate = useNavigate();
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const checkUserToken = () => {
@@ -22,7 +22,7 @@ const ProtectedRoute = (props: any) => {
     return (
         <React.Fragment>
             {
-                isLoggedIn ?  <AppLayout {...props}></AppLayout> : null
+                isLoggedIn ?  <MainLayout {...props}></MainLayout> : null
             }
         </React.Fragment>
     );

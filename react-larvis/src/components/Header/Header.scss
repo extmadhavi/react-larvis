@@ -1,0 +1,7 @@
+.greetings{
+    padding-right: 10px;
+     text-transform: capitalize;
+    @media (max-width: 768px) {
+        display: none;
+    }
+}
