@@ -1,15 +1,16 @@
 import React, { useState, ReactNode } from 'react';
 import {
 TableOutlined,
-  UserOutlined,
+UserOutlined,
 TeamOutlined ,
 MenuOutlined
 } from '@ant-design/icons';
 
-import { Breadcrumb, Layout, Menu, theme, Button } from 'antd';
-import AppHeader from "../../components/Common/layout/Header"
-import './Layout.scss';
+import { Layout, Menu, Button } from 'antd';
+import AppHeader from "../Header/Header"
+
 import { Link, useLocation } from 'react-router-dom';
+
 const {  Content, Footer, Sider } = Layout;
 interface MenuItem {
   label: string;
@@ -41,9 +42,7 @@ const App: React.FC<LayoutProps> = ({ children }) => {
   const toggleCollapsed = () => {
     setCollapsed(!collapsed);
   };
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken();
+ 
 const selectedKey = menuItems.findIndex(item => item.path === location.pathname);
   
   return (

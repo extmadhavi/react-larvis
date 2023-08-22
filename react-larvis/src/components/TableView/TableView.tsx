@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Card, Table } from 'antd'; // Make sure to import necessary components from 'antd'
-import { Columns } from '../../../constants/Columns';
-import { Acquisition } from '../../../interfaces/Acquisition';
+import { Columns } from '../../constants/Columns';
+import { Acquisition } from '../../interfaces/Acquisition';
 
 const TableView: React.FC<{ acquisitions: Acquisition[] }> = ({ acquisitions }) => {
   return (

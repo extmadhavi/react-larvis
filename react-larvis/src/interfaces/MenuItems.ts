@@ -1,13 +1,13 @@
-import { ReactNode } from 'react';
+import  React  from 'react';
+
+
 export interface MenuItem {
   label: string;
   path: string;
-  icon: ReactNode;
+  icon: React.ReactNode;
 }
 
-// export interface MenuCategory {
-//   items: MenuItem[];
-// }
+
 
 
 

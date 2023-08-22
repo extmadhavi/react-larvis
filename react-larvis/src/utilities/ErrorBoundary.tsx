@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios, { AxiosError } from 'axios';
 import { Alert } from 'antd';
+
 interface ErrorBoundaryProps {
   children: React.ReactNode;
 }
@@ -20,7 +21,7 @@ const ErrorBoundary: React.FC<ErrorBoundaryProps> = ({ children }) => {
     };
 
     window.addEventListener('error', handleGlobalError);
-    axios.interceptors.response.use(
+    const axiosInterceptor = axios.interceptors.response.use(
       (response) => response,
       (error) => {
         handleAxiosError(error);
@@ -30,20 +31,25 @@ const ErrorBoundary: React.FC<ErrorBoundaryProps> = ({ children }) => {
 
     return () => {
       window.removeEventListener('error', handleGlobalError);
+      axios.interceptors.response.eject(axiosInterceptor);
     };
   }, []);
 
-  if (error) {
-    return <Alert
-      message="Warning"
-      description={ error}
-      type="warning"
-      showIcon
-      closable
-    />
-  }
-
-  return <>{children}</>;
+  return (
+    <>
+      {error && (
+        <Alert
+          message="Warning"
+          description={error}
+          type="error"
+          showIcon
+          closable
+          onClose={() => setError(null)} // Clear error on close
+        />
+      )}
+      {children}
+    </>
+  );
 };
 
 export default ErrorBoundary;

@@ -18,6 +18,7 @@
 .centered-avatar {
     margin: 0 auto;
 }
+
 /* Media query for small devices */
 @media (max-width: 768px) {
     .centered-card-container {
@@ -27,7 +28,5 @@
 
     .centered-card {
         flex-grow: unset;
-      
-        /* Reset flex-grow for small devices */
     }
 }

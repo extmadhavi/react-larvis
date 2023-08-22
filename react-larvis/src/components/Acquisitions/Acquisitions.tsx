@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import OreSiteHistogram from './OreSiteHistogram'
+import ChartView from '../ChartView/ChartView'
 import { Radio , RadioChangeEvent,Row, Col} from 'antd';
-import TableView from './TableView';
-import { Acquisition } from '../../../interfaces/Acquisition';
+import TableView from '../TableView/TableView';
+import { Acquisition } from '../../interfaces/Acquisition';
 
 const Acquisitions: React.FC = () => {
   const [acquisitions, setacquisitions] = useState<Acquisition[]>([]);
-  const [displayType, setdisplayType] = useState(1); 
+  const [displayType, setdisplayType] = useState("tableView"); 
   
   useEffect(() => {
     const apiUrl = 'http://localhost:8080/acquisitions';
@@ -27,29 +27,22 @@ const Acquisitions: React.FC = () => {
       });
   }, []);
   
-  
-  
-  
   const handleRadioChange  = (e: RadioChangeEvent) => {
-    setdisplayType(e.target.value);
-};
+      setdisplayType(e.target.value);
+  };
  
   return (
     <Row gutter={[16, 16]} justify="center" >
       <Col span={16}><h1 className='ant-page-header-heading'>Satellite acquisitions</h1></Col>
       <Col span={16}>
         <Radio.Group onChange={handleRadioChange} defaultValue="a">
-            <Radio.Button value="1">Table</Radio.Button>
-            <Radio.Button value="2">Chart</Radio.Button>
+            <Radio.Button value="tableView">Table</Radio.Button>
+            <Radio.Button value="chartView">Chart</Radio.Button>
         </Radio.Group>
       </Col>
-       
-          
-      
-      <Col span={16}> { displayType == 1 ?  <TableView acquisitions={acquisitions}></TableView> :  <OreSiteHistogram data={acquisitions} />} </Col>
-   
-       
-      </Row>
+      <Col span={16}> {displayType === "tableView" ? <TableView acquisitions={acquisitions}></TableView> :
+                     <ChartView data={acquisitions} />} </Col>
+   </Row>
   );
 };
 
