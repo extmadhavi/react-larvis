@@ -52,6 +52,8 @@ docker run -p 8000:8000 -p 3000:3000 react-redux-app
 ```
 
 The app will be accessible at [http://localhost:3000](http://localhost:3000) for the React app and [http://localhost:8000](http://localhost:8000) for the REST API.
+## Application Flow 
+![auth](https://github.com/extmadhavi/react-larvis/assets/50070482/806ac874-d616-4940-9166-7cf6254eacc2)
 
 ## REST API Endpoints
 
