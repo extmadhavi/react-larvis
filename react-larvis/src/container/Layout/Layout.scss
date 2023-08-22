@@ -1,0 +1,48 @@
+.hamburger-button {
+    //  display: none;
+    display: block;
+    left: 75px;
+    position: relative;
+    color: #134e5e;
+
+    @media (max-width: 768px) {
+        /* Show the hamburger button on small screens */
+    }
+}
+
+.ant-layout-sider-trigger {
+
+    display: none;
+}
+
+.ant-layout .ant-layout-sider {
+    position: absolute;
+    top: 65px;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    min-width: 80px !important;
+    width: 80px !important;
+
+    // left: -200px ;
+    @media (max-width: 768px) {
+        // left: -80px;
+        /* Show the hamburger button on small screens */
+    }
+
+}
+
+.ant-layout .ant-layout-sider.ant-layout-sider-collapsed {
+    left: -80px !important;
+
+    @media (max-width: 768px) {
+
+        /* Show the hamburger button on small screens */
+    }
+
+}
+
+.ant-layout .ant-layout-sider {
+    left: 0px !important;
+
+}

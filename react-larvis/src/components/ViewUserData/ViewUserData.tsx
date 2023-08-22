@@ -1,5 +1,5 @@
 import React from 'react';
-import { Avatar, Row, Col, Button, Input } from 'antd';
+import { Avatar, Row, Col, Button, Input, Form } from 'antd';
 import { LockOutlined } from '@ant-design/icons';
 import { UserData } from "../../type/UserData";
 
@@ -20,12 +20,24 @@ const ViewUserData: React.FC<ViewUserDataProps> = ({ user, userId, editClicked }
         {user.name?.charAt(0)}
       </Avatar>
       <div className="user-details">
-        <p>Username: {user.name}</p>
-        {user.password && (
-          <p>
-            Password: <Input.Password prefix={<LockOutlined />} placeholder="Old Password" value={user.password} />
-          </p>
-        )}
+        <Form
+            name="edit-user"
+            labelCol={{ span: 8 }}
+            wrapperCol={{ span: 16 }}
+            style={{ maxWidth: 600 }}
+            
+            autoComplete="off"
+        >
+            <Form.Item label="Username" name="username">
+              <Input placeholder="Username" defaultValue={user.name} />
+            </Form.Item>
+            {user.password && 
+            <Form.Item label="Password" name="password">
+              <Input.Password  defaultValue={user.password}/>
+            </Form.Item>
+            }
+        </Form>
+        
       </div>
       {authUserID === userId && (
         <Button type="primary" onClick={editClicked}>
