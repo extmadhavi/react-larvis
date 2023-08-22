@@ -1,5 +1,5 @@
 import React from 'react';
-import { Avatar, Row, Col, Button, Input } from 'antd';
+import { Avatar, Card, Button, Input } from 'antd';
 import { UserData } from "../../type/UserData";
 
 
@@ -13,8 +13,8 @@ interface ViewUserDataProps {
 const authUserID = localStorage.getItem('username');
 
 const ViewUserData: React.FC<ViewUserDataProps> = ({ user, userId, editClicked }) => (
-  <Row gutter={[16, 16]} justify="center" align="middle">
-    <Col span={6} className="centered-card">
+  <div className="centered-card-container">
+      <Card className="centered-card" hoverable>
       <Avatar size={100} className="centered-avatar" style={{ margin: '20px' }}>
         {user.name?.charAt(0)}
       </Avatar>
@@ -30,8 +30,8 @@ const ViewUserData: React.FC<ViewUserDataProps> = ({ user, userId, editClicked }
           Edit
         </Button>
       )}
-    </Col>
-  </Row>
+    </Card>
+  </div>
 );
 
 export default ViewUserData;

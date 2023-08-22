@@ -1,7 +1,7 @@
 .centered-card-container {
     display: flex;
     justify-content: flex-start;
-    align-items: start;
+    align-items: flex-start;
 }
 
 .centered-card {
@@ -16,7 +16,6 @@
 .centered-avatar {
     margin: 0 auto;
 }
-
 
 @media (max-width: 768px) {
     .centered-card-container {
