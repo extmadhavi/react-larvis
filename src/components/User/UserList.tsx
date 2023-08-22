@@ -33,11 +33,9 @@ const UserList: React.FC = () => {
       <Row gutter={[16, 16]} justify="center" >
         
         {users.map((user) => (
-          //<Col span={6} className="centered-card" style={{padding: "20px", minHeight: '350px'}}>
-            <Link to={`/user/${user.user_id}`}>
-              <UserCard user={user} />
-              </Link>
-            //</Col>
+          <Link to={`/user/${user.user_id}`}>
+            <UserCard user={user} />
+          </Link>
         ))}
       </Row>
    

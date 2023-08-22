@@ -1,7 +1,73 @@
-.greetings{
-    padding-right: 10px;
-     text-transform: capitalize;
-    @media (max-width: 768px) {
-        display: none;
+$color_1: #818181;
+$color_2: #f1f1f1;
+$color_3: white;
+$font-family_1: "Lato", sans-serif;
+$background-color_1: #134e5e;
+$background-color_2: #444;
+
+body {
+    font-family: $font-family_1;
+}
+
+.sidepanel {
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: $background-color_1;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+
+    a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: $color_1;
+        display: block;
+        transition: 0.3s;
+
+        &:hover {
+            color: $color_2;
+        }
     }
+
+    .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+    }
+}
+.expanded {
+    width: 300px;
+}
+
+.collapsed {
+    width: 0;
+}
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: $background-color_1;
+    color: $color_3;
+    padding: 0 10px;
+    border: none;
+
+    &:hover {
+        background-color: $background-color_2;
+    }
+}
+.header-right {
+    float: right;
+}
+.logo {
+    background-color: transparent;
+    border: 0;
+    font-size: 32px;
+}
+.menu-lable{
+    padding-left: 10px
 }

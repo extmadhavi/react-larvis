@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
-import {  setUserID } from '../../redux/authSlice';
 import { useNavigate } from 'react-router-dom'; 
 import { Form, Input, Button, Checkbox, Row, Col, Card } from 'antd';
 
@@ -12,12 +11,10 @@ interface AuthResponse {
 const Login: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  //const [authToken, setAuthToken] = useState('');
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleLogin = () => {
     const apiUrl = 'http://localhost:8080/token';
-    // const token = 'your-auth-token'; // Replace with actual token
     axios
       .post<AuthResponse>(apiUrl, {
         user_id: username,
@@ -55,9 +52,9 @@ const Login: React.FC = () => {
               <Input.Password onChange={e => setPassword(e.target.value)} />
             </Form.Item>
 
-            <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 8, span: 16 }}>
+            {/* <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 8, span: 16 }}>
               <Checkbox>Remember me</Checkbox>
-            </Form.Item>
+            </Form.Item> */}
 
             <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
               <Button type="primary" htmlType="submit" onClick={handleLogin}>

@@ -1,15 +1,24 @@
-import React, { useState } from 'react';
-import { Layout, Avatar, Tooltip, Modal , theme} from 'antd';
-import { LogoutOutlined , AppstoreOutlined} from '@ant-design/icons';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, ReactNode } from 'react';
+import { Layout, Avatar, Tooltip, Modal , theme, Button, Menu} from 'antd';
+import { LogoutOutlined , AppstoreOutlined, MenuUnfoldOutlined, TableOutlined,
+UserOutlined,
+TeamOutlined ,
+  MenuOutlined
+} from '@ant-design/icons';
+import { useNavigate, Link , useLocation} from 'react-router-dom';
 import './../Header/Header.scss';
 const { Header } = Layout;
-
+interface MenuItem {
+  label: string;
+  path: string;
+  icon: ReactNode;
+}
 
     const AppHeader: React.FC = () => {
       const authUserID = localStorage.getItem('username');
       const navigate = useNavigate();
       const [isLogoutModalVisible, setLogoutModalVisible] = useState(false);
+      const [collapsed, setCollapsed] = useState(false);
 
       const showLogoutModal = () => {
         setLogoutModalVisible(true);
@@ -29,11 +38,41 @@ const { Header } = Layout;
       const {
         token: { colorBgContainer },
       } = theme.useToken();
+      
+      const menuItems: MenuItem[] = [ {
+        label: "Users",
+        path: "/users",
+        icon: <TeamOutlined/>
+    },{
+        label: "Edit Profile",
+        path: `/user/${localStorage.getItem('username')}`,
+        icon: <UserOutlined/>
+    },
+    {
+        label: "Acquisitions",
+        path: "/acquisitions",
+        icon: <TableOutlined/>,
+  }]
+    const toggleSidebar = () => {
+      setCollapsed(!collapsed);
+    };
 
+    
   return (
-    <Header style={{  background: colorBgContainer }}>
-        <h1 style={{ textAlign:'left', lineHeight: 'normal', padding : '0 5px'}}><AppstoreOutlined />Larvis</h1>
-        <div style={{ position: 'absolute', top: 0, right: 40 }}>
+    <Header style={{ background: colorBgContainer, padding: '0 15px' }}>
+     <div className={`sidepanel content ${!collapsed ? 'expanded' : 'collapsed'}`}>
+        <Button className="closebtn" type='default' onClick={toggleSidebar} style={{backgroundColor: 'transparent', border: '0', color:'#fff' }}>&times;</Button>
+            {menuItems.map((item, index) => (
+            <Link to={item.path} key={index}>
+              {item.icon}<span className='menu-lable'>{ item.label}</span>
+            </Link>
+          ))}
+      </div>
+
+      <Button className="openbtn" onClick={toggleSidebar}><MenuUnfoldOutlined size={50}/></Button>
+        <Button className="logo">Larvis</Button>
+      
+        <div className='header-right'>
           <Avatar size={35} style={{ marginRight: '16px',color: '#000', lineHeight: 'normal'}} >
                       {authUserID?.charAt(0)}
           </Avatar>
