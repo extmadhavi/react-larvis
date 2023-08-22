@@ -1,5 +1,5 @@
 import React from 'react';
-import { Avatar, Row, Col, Button, Input, Form } from 'antd';
+import { Avatar, Row, Col, Button, Input } from 'antd';
 import { UserData } from "../../type/UserData";
 
 
@@ -18,20 +18,14 @@ const ViewUserData: React.FC<ViewUserDataProps> = ({ user, userId, editClicked }
       <Avatar size={100} className="centered-avatar" style={{ margin: '20px' }}>
         {user.name?.charAt(0)}
       </Avatar>
-      <div className="user-details">
-       
-            <Form.Item label="Username" name="username">
-              <Input placeholder="Username" value={user.name} />
-            </Form.Item>
-            {user.password && 
-            <Form.Item label="Password" name="password">
-              <Input.Password  value={user.password}/>
-            </Form.Item>
-            }
-    
-        
+       <div className="user-details">
+        <h3>{user.name}</h3>
+        {authUserID ===  user.name?.toLowerCase()  &&  
+          <h3>
+          <Input.Password placeholder="Old Password" value={user.password} />
+          </h3>}
       </div>
-      {authUserID === userId && (
+      {authUserID ===  user.name?.toLowerCase() && (
         <Button type="primary" onClick={editClicked}>
           Edit
         </Button>
