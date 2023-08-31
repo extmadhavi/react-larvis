@@ -1,7 +1,7 @@
 ```markdown
 # React App with Ant Design, TypeScript, Redux Toolkit and Docker
 
-This repository contains a coding assignment implemented using React with  Ant Design components, TypeScript,
+This repository implemented using React with  Ant Design components, TypeScript,
 Redux Toolkit, React Router and Docker for containerization. The app integrates with a REST API,
 which provides endpoints for retrieving user data and acquisitions.
 
@@ -61,7 +61,6 @@ The app will be accessible at [http://localhost:3000](http://localhost:3000) for
 - `GET /users`: Retrieve a list of users.
 - `GET /users/<user_id>`: Retrieve user details for a specific user.
 - `POST /users/<user_id>`: Update user details.
-
 - `GET /acquisitions`: Retrieve acquisitions data.
 
 ## Additional Notes
